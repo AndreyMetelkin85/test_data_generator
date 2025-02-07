@@ -9,9 +9,10 @@ app = FastAPI()
 
 @app.get(path="/user_data",
          tags=["User data"],
-         description="Эндпоинт генерирует случайные данные пользователя, включая имя, фамилию и email-адрес. "
-                     "Локализация влияет на формат имени и фамилии, а домен — на email.",
-         response_description="Возвращает JSON с именем, фамилией и email-адресом",
+         description="Эндпоинт генерирует случайные данные пользователя, включая имя, фамилию, email-адрес, а так же"
+                     "мобильный номер телефона. Локализация влияет на формат имени и фамилии, номера телефона,"
+                     "а домен — на email.",
+         response_description="Возвращает JSON с именем, фамилией, мобильным номером и email-адресом",
          responses={
              200: {
                  "description": "Успешный ответ с сгенерированными данными",
@@ -20,7 +21,8 @@ app = FastAPI()
                          "example": {
                              "first_name": "Иван",
                              "last_name": "Петров",
-                             "email": "ivan_petrov@mail.ru"
+                             "email": "ivan_petrov@mail.ru",
+                             "mobile_phone": +79031234567
                          }
                      }
                  }
@@ -38,11 +40,12 @@ def generate_user_data_endpoint(
         locale_value = locale.value if locale else None
         domain_value = domain.value if domain else None
 
-        email, first_name, last_name = user_data(domain=domain_value, locale=locale_value)
+        email, first_name, last_name, mobile_phone = user_data(domain=domain_value, locale=locale_value)
         return {
             "first_name": first_name,
             "last_name": last_name,
-            "email": email
+            "email": email,
+            "mobile_phone": mobile_phone
         }
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
