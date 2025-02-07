@@ -35,3 +35,16 @@ def user_data(domain: str = None, locale: str = "en_US"):
     email = f"{first_name.lower()}_{last_name.lower()}@{domain}"
 
     return email, first_name, last_name
+
+
+def password(length: int, special_chars: bool, digits: bool, upper_case: bool, lower_case: bool ) -> str:
+
+    f = Faker(locale="en_US")
+
+    generate_password = f.password(length=length,
+                                   special_chars=special_chars,
+                                   digits=digits,
+                                   upper_case=upper_case,
+                                   lower_case=lower_case
+                                   )
+    return generate_password
