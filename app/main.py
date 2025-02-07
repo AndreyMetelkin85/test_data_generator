@@ -2,7 +2,7 @@ from typing import Optional
 import uvicorn
 from fastapi import FastAPI, Query, HTTPException
 from app.models.data_model import Locale, Domain
-from app.services.data_service import user_data
+from app.services.data_service import user_data, password
 
 app = FastAPI()
 
@@ -44,6 +44,48 @@ def generate_user_data_endpoint(
             "last_name": last_name,
             "email": email
         }
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+
+@app.get(
+    path="/generate_password",
+    tags=["Password"],
+    description=(
+            "Генерирует безопасный пароль с заданными параметрами. "
+            "Вы можете указать длину пароля, а также выбрать, "
+            "должны ли в нем присутствовать цифры, спецсимволы, "
+            "заглавные и строчные буквы."
+    ),
+    response_description="Возвращает сгенерированный пароль в JSON-формате",
+    responses={
+        200: {
+            "description": "Успешный ответ с сгенерированным паролем",
+            "content": {
+                "application/json": {
+                    "example": {"password": "A2b#7dX@z"}
+                }
+            },
+        },
+        400: {
+            "description": "Некорректные параметры (например, длина вне диапазона 6-50 символов)"
+        },
+    }
+)
+def generate_password_user_endpoint(
+        password_length: Optional[int] = Query(default=6, description="Длина пароля", ge=6, le=50),
+        special_chars: Optional[bool] = Query(default=False, description="Добавить спецсимволы"),
+        digits: Optional[bool] = Query(default=False, description="Добавить цифры"),
+        upper_case: Optional[bool] = Query(default=False, description="Добавить заглавные буквы"),
+        lower_case: Optional[bool] = Query(default=True, description="Добавить строчные буквы")
+):
+    try:
+        generate_password = password(length=password_length,
+                                     special_chars=special_chars,
+                                     digits=digits,
+                                     upper_case=upper_case,
+                                     lower_case=lower_case)
+        return {"password": generate_password}
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
 
