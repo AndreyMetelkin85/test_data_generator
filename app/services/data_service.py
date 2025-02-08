@@ -1,7 +1,5 @@
 import random
-from datetime import datetime
-from decimal import Decimal
-from typing import Optional, List, Literal, Tuple, Dict, Union
+from typing import Literal
 
 from faker import Faker
 
@@ -83,7 +81,7 @@ def password(length: int, special_chars: bool, digits: bool, upper_case: bool, l
     return generate_password
 
 
-def profile(locale: str = "en_US"):
+def profile(sex: Literal["M", "F", "X"] = None, locale: str = "en_US"):
     if locale is None:
         locale = random.choice(list_locales)
     elif locale not in list_locales:
@@ -91,6 +89,6 @@ def profile(locale: str = "en_US"):
 
     f = Faker(locale=locale)
 
-    all_data = f.profile()
+    all_data = f.profile(sex=sex)
 
     return all_data

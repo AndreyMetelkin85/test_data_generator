@@ -11,3 +11,8 @@ class Domain(str, Enum):
     YAHOO = "yahoo.com"
     MAIL_RU = "mail.ru"
     TEST_RU = "test.ru"
+
+class Sex(str, Enum):
+    M = "M"
+    F = "F"
+    X = "X"
