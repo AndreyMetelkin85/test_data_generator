@@ -27,8 +27,15 @@ app = FastAPI()
                      }
                  }
              },
-             400: {
-                 "description": "Некорректные параметры (например, неверная локализация или домен)"
+             500: {
+                 "description": "Внутренняя ошибка сервера.",
+                 "content": {
+                     "application/json": {
+                         "example": {
+                             "detail": "Ошибка сервера. Повторите запрос позже."
+                         }
+                     }
+                 }
              }
          }
          )
@@ -70,8 +77,15 @@ def generate_user_data_endpoint(
                 }
             },
         },
-        400: {
-            "description": "Некорректные параметры (например, длина вне диапазона 6-50 символов)"
+        500: {
+            "description": "Внутренняя ошибка сервера.",
+            "content": {
+                "application/json": {
+                    "example": {
+                        "detail": "Ошибка сервера. Повторите запрос позже."
+                    }
+                }
+            }
         },
     }
 )
@@ -94,7 +108,44 @@ def generate_password_user_endpoint(
 
 
 @app.get(path="/profile_data",
-         tags=["User data"])
+         tags=["User data"],
+         response_description="Возвращает JSON с профилем пользователя.",
+         responses={
+             200: {
+                 "description": "Успешный ответ. Возвращает JSON с данными пользователя.",
+                 "content": {
+                     "application/json": {
+                         "example": {
+                             "id": 1,
+                             "name": "Иван Иванов",
+                             "sex": "M",
+                             "age": 30
+                         }
+                     }
+                 }
+             },
+             400: {
+                 "description": "Некорректный запрос. Например, передан недопустимый пол ('sex').",
+                 "content": {
+                     "application/json": {
+                         "example": {
+                             "detail": "Некорректное значение параметра 'sex'. Допустимые: 'M', 'F', 'X'."
+                         }
+                     }
+                 }
+             },
+             500: {
+                 "description": "Внутренняя ошибка сервера.",
+                 "content": {
+                     "application/json": {
+                         "example": {
+                             "detail": "Ошибка сервера. Повторите запрос позже."
+                         }
+                     }
+                 }
+             }
+         }
+         )
 def generate_profile_endpoint(
         locale: Optional[Locale] = Query(default=None, description="Локализация"),
         sex: Optional[Sex] = Query(default=None, description="Пол пользователя: 'M' (мужской), 'F' (женский),"
