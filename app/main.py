@@ -112,34 +112,37 @@ def generate_password_user_endpoint(
          response_description="Возвращает JSON с профилем пользователя.",
          responses={
              200: {
-                 "description": "Успешный ответ. Возвращает JSON с данными пользователя.",
+                 "description": "Успешный ответ. Возвращает JSON с полным профилем пользователя.",
                  "content": {
                      "application/json": {
                          "example": {
-                             "id": 1,
-                             "name": "Иван Иванов",
+                             "job": "Musician",
+                             "company": "Williams-Sheppard",
+                             "ssn": "498-52-4970",
+                             "residence": "Unit 5938 Box 2421\nDPO AP 33335",
+                             "current_location": [52.958961, 143.143712],
+                             "blood_group": "B+",
+                             "website": [
+                                 "http://www.rivera.com/",
+                                 "http://grimes-green.net/",
+                                 "http://www.larsen.com/"
+                             ],
+                             "username": "leeashley",
+                             "name": "Gary Cross",
                              "sex": "M",
-                             "age": 30
+                             "address": "711 Golden Overpass\nWest Andreaville, OH 44115",
+                             "mail": "tamaramorrison@hotmail.com",
+                             "birthdate": "1942-06-21"
                          }
                      }
-                 }
-             },
-             400: {
-                 "description": "Некорректный запрос. Например, передан недопустимый пол ('sex').",
-                 "content": {
-                     "application/json": {
-                         "example": {
-                             "detail": "Некорректное значение параметра 'sex'. Допустимые: 'M', 'F', 'X'."
-                         }
-                     }
-                 }
-             },
-             500: {
-                 "description": "Внутренняя ошибка сервера.",
-                 "content": {
-                     "application/json": {
-                         "example": {
-                             "detail": "Ошибка сервера. Повторите запрос позже."
+                 },
+                 500: {
+                     "description": "Внутренняя ошибка сервера.",
+                     "content": {
+                         "application/json": {
+                             "example": {
+                                 "detail": "Ошибка сервера. Повторите запрос позже."
+                             }
                          }
                      }
                  }
