@@ -2,7 +2,7 @@ from typing import Optional
 import uvicorn
 from fastapi import FastAPI, Query, HTTPException
 from app.models.data_model import Locale, Domain
-from app.services.data_service import user_data, password
+from app.services.data_service import user_data, password, profile
 
 app = FastAPI()
 
@@ -91,6 +91,16 @@ def generate_password_user_endpoint(
         return {"password": generate_password}
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
+
+
+@app.get(path="/profile_data",
+         tags=["User data"])
+def generate_profile_endpoint(
+        locale: Optional[Locale] = Query(default=None, description="Локализация")
+):
+    profiles = profile(locale=locale)
+
+    return {"profile": profiles}
 
 
 if __name__ == "__main__":
