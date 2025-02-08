@@ -82,6 +82,7 @@ def password(length: int, special_chars: bool, digits: bool, upper_case: bool, l
 
 
 def profile(sex: Literal["M", "F", "X"] = None, locale: str = "en_US"):
+
     if locale is None:
         locale = random.choice(list_locales)
     elif locale not in list_locales:
