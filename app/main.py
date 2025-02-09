@@ -8,7 +8,7 @@ app = FastAPI()
 
 
 @app.get(path="/user_data",
-         tags=["User data"],
+         tags=["Users"],
          description="Эндпоинт генерирует случайные данные пользователя, включая имя, фамилию, email-адрес, а так же"
                      "мобильный номер телефона. Локализация влияет на формат имени и фамилии, номера телефона,"
                      "а домен — на email.",
@@ -108,7 +108,7 @@ def generate_password_user_endpoint(
 
 
 @app.get(path="/profile_data",
-         tags=["User data"],
+         tags=["Users"],
          response_description="Возвращает JSON с профилем пользователя.",
          responses={
              200: {
@@ -154,9 +154,12 @@ def generate_profile_endpoint(
         sex: Optional[Sex] = Query(default=None, description="Пол пользователя: 'M' (мужской), 'F' (женский),"
                                                              " 'X' (неопределённый).")
 ):
-    profiles = profile(locale=locale, sex=sex)
+    try:
+        profiles = profile(locale=locale, sex=sex)
+        return {"profile": profiles}
 
-    return {"profile": profiles}
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
 
 
 if __name__ == "__main__":
