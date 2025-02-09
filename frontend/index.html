@@ -60,6 +60,36 @@
 
         <h2 class="user-profile__title">Сгенерировать пароль</h2>
 
+        <p class="user-data__domain-title">Выбрать дополнительные параметры</p>
+
+        <form class="password-data__form">
+
+            <div class="checkbox-container">
+
+                <div class="column">
+                    <label><input type="checkbox" name="special_chars"> Добавить спецсимволы</label>
+                    <label><input type="checkbox" name="digits"> Добавить цифры</label>
+                </div>
+
+                <div class="column">
+                    <label><input type="checkbox" name="upper_case"> Добавить заглавные буквы</label>
+                    <label><input type="checkbox" name="lower_case" checked> Добавить строчные буквы</label>
+                </div>
+
+            </div>
+
+            <div class="password-length">
+                <label for="password_length">Длина пароля:</label>
+                <input type="number" id="password_length" name="password_length" min="6" max="50" value="6">
+            </div>
+
+        </form>
+
+        <button id="password-data__button">Получить пароль</button>
+        <div class="output">
+
+
+        </div>
     </div>
 
 </div>

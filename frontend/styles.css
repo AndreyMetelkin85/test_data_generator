@@ -6,8 +6,8 @@
 
 .container {
     border: 3px solid black;
-    width: 1400px;
-    height: 750px;
+    width: 1500px;
+    height: 780px;
     margin: 0 auto;
 }
 
@@ -32,8 +32,8 @@
 
 .user-data {
     border: 2px solid black;
-    width: 600px;
-    height: 650px;
+    width: 650px;
+    height: 680px;
     margin: 10px;
 }
 
@@ -59,6 +59,19 @@
     text-align: center;
     font-size: 20px;
     margin: 1px auto;
+}
+
+.checkbox-container {
+    font-size: 20px;
+    display: flex;
+    gap: 1px;
+}
+
+.column {
+    display: flex;
+    padding: 5px 40px;
+    flex-direction: column;
+    gap: 1px;
 }
 
 .user-data__option {
@@ -99,7 +112,49 @@
     white-space: normal;
 }
 
+#password-data__button {
+    font-size: 16px;
+    padding: 8px 20px;
+    border-radius: 5px;
+    background-color: #7B00B3;
+    color: #FFFFFF;
+    border: 2px solid black;
+    width: 230px;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    margin: 20px auto;
+    white-space: normal;
+}
+
 .user-profile__title {
     display: block;
     text-align: center;
+
+}
+
+.password-length {
+    margin-top: 20px;
+    font-size: 20px;
+    margin-left: 50px;
+
+}
+
+.password-length input {
+    width: 40px;
+    padding: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.output {
+     margin-top: -600px;
+    margin-left: 750px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    font-size: 18px;
+    width: 100%;
+    min-height: 500px;
+    white-space: pre-wrap; /* Позволяет переносить строки */
 }
