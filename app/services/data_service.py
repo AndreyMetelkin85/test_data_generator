@@ -81,7 +81,7 @@ def password(length: int, special_chars: bool, digits: bool, upper_case: bool, l
     return generate_password
 
 
-def profile(sex: Literal["M", "F", "X"] = None, locale: str = "en_US"):
+def profile(gender: Literal["M", "F", "X"] = None, locale: str = "en_US"):
 
     if locale is None:
         locale = random.choice(list_locales)
@@ -90,6 +90,6 @@ def profile(sex: Literal["M", "F", "X"] = None, locale: str = "en_US"):
 
     f = Faker(locale=locale)
 
-    all_data = f.profile(sex=sex)
+    all_data = f.profile(sex=gender)
 
     return all_data

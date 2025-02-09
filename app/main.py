@@ -151,11 +151,11 @@ def generate_password_user_endpoint(
          )
 def generate_profile_endpoint(
         locale: Optional[Locale] = Query(default=None, description="Локализация"),
-        sex: Optional[Gender] = Query(default=None, description="Пол пользователя: 'M' (мужской), 'F' (женский),"
+        gender: Optional[Gender] = Query(default=None, description="Пол пользователя: 'M' (мужской), 'F' (женский),"
                                                              " 'X' (неопределённый).")
 ):
     try:
-        profiles = profile(locale=locale, sex=sex)
+        profiles = profile(locale=locale, gender=gender)
         return {"profile": profiles}
 
     except ValueError as e:
