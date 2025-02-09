@@ -9,7 +9,7 @@
 <h1 class="main-title">QA Tools</h1>
 <div class="main-blok">
     <div class="localization">
-        <div class="localization_title_text">
+        <div class="localization-title-text">
             <p>Выбрать локализацию:</p>
         </div>
         <select>
@@ -20,6 +20,24 @@
         </select>
     </div>
     <div id="user-data-blok">
+        <div class="domain-title-text">
+            <p>Выбрать домен</p>
+        </div>
+        <form id="form-email-radio">
+            <label>
+                <input type="radio" name="option" value="gmail.com"> gmail.com
+            </label>
+            <label>
+                <input type="radio" name="option" value="yahoo.com"> yahoo.com
+            </label>
+            <label>
+                <input type="radio" name="option" value="test.ru"> test.ru
+            </label>
+            <label>
+                <input type="radio" name="option" value="mail.ru"> mail.ru
+            </label>
+        </form>
+        <button id="get-user-data-button">Получить данные пользователя</button>
 
     </div>
 </div>
