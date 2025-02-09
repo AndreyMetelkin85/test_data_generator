@@ -1,0 +1,161 @@
+.header__title {
+    font-size: 48px;
+    color: blue;
+    text-align: center;
+}
+
+.container {
+    border: 3px solid black;
+    width: 1500px;
+    height: 780px;
+    margin: 0 auto;
+    background-color: #F5F5DC;
+}
+
+.localization {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.localization__title {
+    font-size: 20px;
+    display: block;
+}
+
+#localization__select {
+    padding: 5px;
+    font-size: 16px;
+    width: 120px;
+    background-color: #FAEBD7;
+}
+
+.user-data {
+    border: 2px solid black;
+    width: 650px;
+    height: 680px;
+    margin: 10px;
+}
+
+.user-data__title {
+    display: block;
+    text-align: center;
+}
+
+.user-data__domain-title {
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    line-height: 5px;
+}
+
+.user-data__form {
+    text-align: center;
+    font-size: 20px;
+    margin: 1px auto;
+}
+
+.gender-data__form {
+    text-align: center;
+    font-size: 20px;
+    margin: 1px auto;
+}
+
+.checkbox-container {
+    font-size: 20px;
+    display: flex;
+    gap: 1px;
+}
+
+.column {
+    display: flex;
+    padding: 5px 40px;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.user-data__option {
+    margin-right: 30px;
+}
+
+.gender-data__option {
+    margin-right: 10px;
+}
+
+#user-data__button {
+    font-size: 16px;
+    padding: 8px 20px;
+    border-radius: 5px;
+    background-color: #7B00B3;
+    color: #FFFFFF;
+    border: 2px solid black;
+    width: 230px;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    margin: 20px auto;
+    white-space: normal;
+}
+
+#profile-data__button {
+    font-size: 16px;
+    padding: 8px 20px;
+    border-radius: 5px;
+    background-color: #7B00B3;
+    color: #FFFFFF;
+    border: 2px solid black;
+    width: 230px;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    margin: 20px auto;
+    white-space: normal;
+}
+
+#password-data__button {
+    font-size: 16px;
+    padding: 8px 20px;
+    border-radius: 5px;
+    background-color: #7B00B3;
+    color: #FFFFFF;
+    border: 2px solid black;
+    width: 230px;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    margin: 20px auto;
+    white-space: normal;
+}
+
+.user-profile__title {
+    display: block;
+    text-align: center;
+
+}
+
+.password-length {
+    margin-top: 20px;
+    font-size: 20px;
+    margin-left: 50px;
+
+}
+
+.password-length input {
+    width: 40px;
+    padding: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.output {
+     margin-top: -600px;
+    margin-left: 750px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    font-size: 18px;
+    width: 100%;
+    min-height: 500px;
+    white-space: pre-wrap; /* Позволяет переносить строки */
+}
