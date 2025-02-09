@@ -12,7 +12,7 @@ class Domain(str, Enum):
     MAIL_RU = "mail.ru"
     TEST_RU = "test.ru"
 
-class Sex(str, Enum):
+class Gender(str, Enum):
     M = "M"
     F = "F"
     X = "X"

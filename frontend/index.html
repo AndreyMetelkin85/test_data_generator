@@ -13,7 +13,7 @@
 
     <div class="localization">
         <p class="localization__title">Выбрать локализацию:</p>
-        <select class="localization__select">
+        <select id="localization__select">
             <option>Русский</option>
             <option>Английский</option>
             <option>Французский</option>
@@ -41,9 +41,25 @@
             </label>
         </form>
 
-        <button class="user-data__button">Получить данные пользователя</button>
+        <button id="user-data__button">Получить данные пользователя</button>
 
         <h2 class="user-profile__title">Профиль пользователя</h2>
+
+        <p class="user-data__domain-title">Выбрать пол</p>
+
+        <form class="gender-data__form">
+            <label class="gender-data__option">
+                <input type="radio" name="gender" value="Мужской"> Мужской
+            </label>
+            <label class="gender-data__option">
+                <input type="radio" name="gender" value="Женский"> Женский
+            </label>
+        </form>
+
+        <button id="profile-data__button">Получить данные пользователя</button>
+
+        <h2 class="user-profile__title">Сгенерировать пароль</h2>
+
     </div>
 
 </div>
