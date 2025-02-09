@@ -1,5 +1,10 @@
 import random
+from typing import Literal
+
 from faker import Faker
+
+fake = Faker(locale="en_US")
+list_locales = ["ru_RU", "en_US", "fr_FR", "de_DE"]
 
 
 def user_data(domain: str = None, locale: str = "en_US"):
@@ -21,8 +26,6 @@ def user_data(domain: str = None, locale: str = "en_US"):
 
         Доступные домены для email: ["gmail.com", "yahoo.com", "mail.ru", "test.ru"].
     """
-
-    list_locales = ["ru_RU", "en_US", "fr_FR", "de_DE"]
 
     if locale is None:
         locale = random.choice(list_locales)
@@ -69,12 +72,24 @@ def user_data(domain: str = None, locale: str = "en_US"):
 
 
 def password(length: int, special_chars: bool, digits: bool, upper_case: bool, lower_case: bool) -> str:
-    f = Faker(locale="en_US")
-
-    generate_password = f.password(length=length,
-                                   special_chars=special_chars,
-                                   digits=digits,
-                                   upper_case=upper_case,
-                                   lower_case=lower_case
-                                   )
+    generate_password = fake.password(length=length,
+                                      special_chars=special_chars,
+                                      digits=digits,
+                                      upper_case=upper_case,
+                                      lower_case=lower_case
+                                      )
     return generate_password
+
+
+def profile(sex: Literal["M", "F", "X"] = None, locale: str = "en_US"):
+
+    if locale is None:
+        locale = random.choice(list_locales)
+    elif locale not in list_locales:
+        raise ValueError(f"Некорректное значение локали: {locale}. Доступные локали: {list_locales}")
+
+    f = Faker(locale=locale)
+
+    all_data = f.profile(sex=sex)
+
+    return all_data
