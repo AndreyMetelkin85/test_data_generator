@@ -1,45 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>QA Tools</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<h1 class="main-title">QA Tools</h1>
-<div class="main-blok">
+
+<h1 class="header__title">QA Tools</h1>
+
+<div class="container">
+
     <div class="localization">
-        <div class="localization-title-text">
-            <p>Выбрать локализацию:</p>
-        </div>
-        <select>
+        <p class="localization__title">Выбрать локализацию:</p>
+        <select class="localization__select">
             <option>Русский</option>
             <option>Английский</option>
             <option>Французский</option>
             <option>Немецкий</option>
         </select>
     </div>
-    <div id="user-data-blok">
-        <div class="domain-title-text">
-            <p>Выбрать домен</p>
-        </div>
-        <form id="form-email-radio">
-            <label>
-                <input type="radio" name="option" value="gmail.com"> gmail.com
+
+    <div class="user-data">
+        <h2 class="user-data__title">Данные пользователя</h2>
+
+        <p class="user-data__domain-title">Выбрать домен</p>
+
+        <form class="user-data__form">
+            <label class="user-data__option">
+                <input type="radio" name="domain" value="gmail.com"> gmail.com
             </label>
-            <label>
-                <input type="radio" name="option" value="yahoo.com"> yahoo.com
+            <label class="user-data__option">
+                <input type="radio" name="domain" value="yahoo.com"> yahoo.com
             </label>
-            <label>
-                <input type="radio" name="option" value="test.ru"> test.ru
+            <label class="user-data__option">
+                <input type="radio" name="domain" value="test.ru"> test.ru
             </label>
-            <label>
-                <input type="radio" name="option" value="mail.ru"> mail.ru
+            <label class="user-data__option">
+                <input type="radio" name="domain" value="mail.ru"> mail.ru
             </label>
         </form>
-        <button id="get-user-data-button">Получить данные пользователя</button>
 
+        <button class="user-data__button">Получить данные пользователя</button>
+
+        <h2 class="user-profile__title">Профиль пользователя</h2>
     </div>
+
 </div>
+
 </body>
 </html>
